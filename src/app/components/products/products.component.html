@@ -1,0 +1,34 @@
+<main>
+    <div class="top-container">
+        <div class="product" *ngFor="let product of topProducts">
+            <img [src]="product.image" [alt]="product.name" height="200px" width="200px">
+            <p>{{ product.name }}</p>
+            <div class="price">
+                <p class="whole-price">{{ getWholePrice(product) }}</p>
+
+                <div class="small-price">
+                    <p class="decimal-price">{{ getDecimalPrice(product) }}</p>
+                    <p class="currency-and-unit">{{ product.price.currency }} / {{ product.price.measureUnit}}</p>
+                </div>
+            </div>
+            <button (click)="addProductToCart(product)">Dodaj</button>
+        </div>
+    </div>
+
+    <div class="bottom-container">
+        <div class="product" *ngFor="let product of bottomProducts">
+            <img [src]="product.image" [alt]="product.name" height="200px" width="200px">
+            <p>{{ product.name }}</p>
+            <div class="price">
+                <p class="whole-price">{{ getWholePrice(product) }}</p>
+
+                <div class="small-price">
+                    <p class="decimal-price">{{ getDecimalPrice(product) }}</p>
+                    <p class="currency-and-unit">{{ product.price.currency }} / {{ product.price.measureUnit}}</p>
+                </div>
+            </div>
+            <button (click)="addProductToCart(product)">Dodaj</button>
+        </div>
+
+    </div>
+</main>
