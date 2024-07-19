@@ -1,0 +1,24 @@
+<main>
+    <p>Kosarica</p>
+
+    <hr>
+
+    <div class="added-products">
+        <div class="added-product" *ngFor="let product of (productService.$cart | async)">
+            <img [src]="product.image" [alt]="product.name" height="50px" width="50px">
+            <div class="details">
+                <div class="product"><span class="quantity">{{ product.quantity }} x </span> {{ product.name }} </div>
+                <div class="total-product-price">Ukupno: {{getProductPrice(product)}} </div>
+            </div>
+
+            <mat-icon (click)="productService.removeFromCart(product)">cancel</mat-icon>
+        </div>
+
+    </div>
+
+    <div class="total">
+        <p>Ukupan iznos: </p>
+        <p>{{ productService.$totalPrice | async }} kn</p>
+    </div>
+
+</main>
